@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <!-- <p>Welcome to <%= title %></p> -->
+    <br>
+
+    <div class="container">
+        <a href="/student/add" class="btn btn-success">Create Student</a>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">id</th>
+                <th scope="col">Username</th>
+                <th scope="col">Email</th>
+                <th scope="col">Created at</th>
+                <th scope="col">Updated at</th>
+                <th scope="col">Delete</th>
+                <th scope="col">Update</th>
+
+
+              </tr>
+            </thead>
+            <tbody>
+                <% students.forEach(function(student) { %> 
+                    <tr>
+                        <th scope="row"><%= student.id %></th>
+                        <td><%= student.username %></td>
+                        <td><%= student.email %></td>
+                        <td><%= student.createdAt %></td>
+                        <td><%= student.updatedAt %></td>
+                        <td><a href="/student/deleteStudent/<%= student.id %>" class="btn btn-danger">Delete</a></td>
+                        <td><a href="/student/updateStudent/<%= student.id %>" class="btn btn-warning">Update</a></td>
+
+                    </tr>   
+                <% }) %>
+
+              
+
+           </tbody>
+          </table>
+    </div>
+
+  </body>
+</html>

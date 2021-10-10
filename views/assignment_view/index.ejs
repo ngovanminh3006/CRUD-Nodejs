@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <br>
+
+    <div class="container">
+      <a href="/asm/add" class="btn btn-primary">Create ASM</a>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Content</th>
+            <th scope="col">Student</th>
+            <th scope="col">Created at</th>
+            <th scope="col">Updated at</th>
+            <th scope="col">Delete</th>
+            <th scope="col">Update</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% assignments.forEach(function(assignment) { %>
+            <tr>
+              <th scope="row"><%= assignment.id %></th>
+              <td><%= assignment.title %></td>
+              <td><%= assignment.content %></td>
+              <td><%= assignment.student_Id %></td>
+              <td><%= assignment.createdAt %></td>
+              <td><%= assignment.updatedAt %></td>
+              <td><a href="/asm/deleteASM/<%= assignment.id %>" class="btn btn-danger">Delete</a></td>
+              <td><a href="/asm/updateASM/<%= assignment.id %>" class="btn btn-warning">Update</a></td>
+            </tr>     
+          <% }) %>
+          
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
